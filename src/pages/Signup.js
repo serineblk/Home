@@ -162,8 +162,7 @@ const SignUp = () => {
                 aria-invalid={!!formErrors.role}
                 aria-describedby="role-error"
               >
-                <option value="">Sélectionnez un rôle</option>
-                <option value="admin">Administrateur</option>
+                
                 <option value="employer">Employé</option>
               </select>
               {formErrors.role && (

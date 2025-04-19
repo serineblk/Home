@@ -3,14 +3,13 @@ import gymImage from '../asset/gym.webp';
 import restaurationImage from '../asset/restauration.webp';
 import spaImage from '../asset/spa.webp';
 import emergencyImage from '../asset/emergency.webp';
-import roomServiceImage from '../asset/room-service.webp';
 
 import './LearnMore.css';
 
 const LearnMore = () => {
   const [isClicked, setIsClicked] = useState(null);
-  const [showDetails, setShowDetails] = useState(Array(5).fill(false)); // Pour gérer l'affichage des détails
-  const [ratings, setRatings] = useState(Array(5).fill(0)); // Pour gérer les notes
+  const [showDetails, setShowDetails] = useState(Array(4).fill(false)); // 4 services
+  
 
   const handleCardClick = (index) => {
     setIsClicked(index);
@@ -23,15 +22,10 @@ const LearnMore = () => {
     setShowDetails(newShowDetails);
   };
 
-  const handleRating = (index, rating) => {
-    const newRatings = [...ratings];
-    newRatings[index] = rating;
-    setRatings(newRatings);
-  };
+  
 
   return (
     <div className="container">
-      {/* Section 1 : Gym et Restauration */}
       <div className="grid-container">
         {[
           {
@@ -40,9 +34,11 @@ const LearnMore = () => {
             title: 'Gym',
             description: 'Notre salle de sport est équipée d\'appareils modernes et d\'un espace dédié aux exercices libres.',
             details: [
-              'Équipements : Tapis de course, haltères, machines de musculation.',
+              'Équipements : Tapis de course, haltères, machines de musculation, vélos elliptiques.',
               'Heures d\'ouverture : 24/7.',
-              'Services inclus : Cours collectifs, vestiaires avec douches.',
+              'Services inclus : Cours collectifs (yoga, pilates, spinning), vestiaires avec douches, coachs personnels disponibles sur demande.',
+              'Offres spéciales : Abonnement gratuit pour le premier mois, réduction de 10% pour les étudiants.',
+              'Avis clients : "La salle est impeccable et les coachs sont très professionnels." - Jean D.',
             ],
           },
           {
@@ -54,6 +50,8 @@ const LearnMore = () => {
               'Spécialités : Cuisine française, italienne et asiatique.',
               'Menu : Petit-déjeuner, déjeuner, dîner, brunch dominical.',
               'Options : Plats végétariens, sans gluten et vegan disponibles.',
+              'Offres spéciales : Menu dégustation à 5 plats pour deux personnes à 99€, cocktails maison offerts après 18h.',
+              'Avis clients : "Une expérience culinaire inoubliable !" - Marie L.',
             ],
           },
           {
@@ -62,9 +60,11 @@ const LearnMore = () => {
             title: 'Spa',
             description: 'Offrez-vous un moment de détente dans notre spa haut de gamme.',
             details: [
-              'Soins disponibles : Massages, enveloppements corporels, soins du visage.',
-              'Produits utilisés : Marques biologiques et naturelles.',
+              'Soins disponibles : Massages relaxants, enveloppements corporels, soins du visage, manucure/pédicure.',
+              'Produits utilisés : Marques biologiques et naturelles (L\'Occitane, Nuxe).',
               'Réservation : Sur place ou en ligne.',
+              'Offres spéciales : Forfait journée complète incluant accès au sauna, hammam et piscine à 120€.',
+              'Avis clients : "Un havre de paix et de relaxation." - Sophie R.',
             ],
           },
           {
@@ -74,19 +74,10 @@ const LearnMore = () => {
             description: 'Votre sécurité est notre priorité. Notre équipe médicale est disponible 24/7.',
             details: [
               'Disponibilité : 24 heures sur 24, 7 jours sur 7.',
-              'Équipe médicale : Médecins et infirmiers qualifiés.',
-              'Contact : Appuyez simplement sur le bouton d\'urgence dans votre chambre.',
-            ],
-          },
-          {
-            image: roomServiceImage,
-            icon: 'fas fa-concierge-bell',
-            title: 'Service d\'étage',
-            description: 'Commandez directement depuis votre chambre et profitez d\'un service rapide et efficace.',
-            details: [
-              'Disponibilité : 24/7.',
-              'Options : Boissons, snacks, plats complets.',
-              'Délai moyen : 20-30 minutes.',
+              'Équipe médicale : Médecins et infirmiers qualifiés, spécialistes en premiers secours.',
+              'Contact : Appuyez simplement sur le bouton d\'urgence dans votre chambre ou appelez le +33 1 23 45 67 89.',
+              'Services supplémentaires : Consultations médicales programmées, pharmacie disponible 24/7.',
+              'Avis clients : "Réponse rapide et professionnelle en cas d\'urgence." - Pierre M.',
             ],
           },
         ].map((item, index) => (
@@ -119,15 +110,7 @@ const LearnMore = () => {
                     <li key={i} className="list-item">{detail}</li>
                   ))}
                 </ul>
-                <div className="rating">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <i
-                      key={star}
-                      className={`fas fa-star ${star <= ratings[index] ? 'active' : ''}`}
-                      onClick={() => handleRating(index, star)}
-                    ></i>
-                  ))}
-                </div>
+                
               </div>
             </div>
           </div>

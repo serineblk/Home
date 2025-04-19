@@ -140,7 +140,7 @@ const Login = () => {
                   e.target.style.boxShadow = "none";
                 }}
               >
-                <option value="admin">Administrateur</option>
+                
                 <option value="employer">Employé</option>
               </select>
             </div>
