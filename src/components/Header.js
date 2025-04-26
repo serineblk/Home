@@ -107,13 +107,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-              <Link
-                to="/espace"
-                className={location.pathname === '/espace' ? 'active' : ''}
-              >
-                <i className="fas fa-space-shuttle"></i>
-                <span>Espace Administration</span>
-              </Link>
+             
             </li>
               </>
             

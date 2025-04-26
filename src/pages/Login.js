@@ -141,7 +141,8 @@ const Login = () => {
                 }}
               >
                 
-                <option value="employer">Employé</option>
+                <option value="user">Utilisateur</option>
+                <option value="admin">Administrateur</option>
               </select>
             </div>
             {/* Bouton de soumission */}
